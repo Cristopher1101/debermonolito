@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B45FD52E-CD96-4CAA-BA47-F219AADBB62B}|capa_negocio\\capa_negocio.csproj|D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\cn_tbl_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45FD52E-CD96-4CAA-BA47-F219AADBB62B}|capa_negocio\\capa_negocio.csproj|solutionrelative:capa_negocio\\cn_tbl_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\monolito4_b\\seguridad\\registrar.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|solutionrelative:monolito4_b\\seguridad\\registrar.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\monolito4_b\\seguridad\\registrar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|solutionrelative:monolito4_b\\seguridad\\registrar.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\monolito4_b\\seguridad\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|solutionrelative:monolito4_b\\seguridad\\login.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45FD52E-CD96-4CAA-BA47-F219AADBB62B}|capa_negocio\\capa_negocio.csproj|D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\cn_tbl_tipo_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45FD52E-CD96-4CAA-BA47-F219AADBB62B}|capa_negocio\\capa_negocio.csproj|solutionrelative:capa_negocio\\cn_tbl_tipo_usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B45FD52E-CD96-4CAA-BA47-F219AADBB62B}|capa_negocio\\capa_negocio.csproj|D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\mail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B45FD52E-CD96-4CAA-BA47-F219AADBB62B}|capa_negocio\\capa_negocio.csproj|solutionrelative:capa_negocio\\mail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "registrar.aspx.cs",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\registrar.aspx.cs",
+              "RelativeDocumentMoniker": "Monolito4_B\\Seguridad\\registrar.aspx.cs",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\registrar.aspx.cs",
+              "RelativeToolTip": "Monolito4_B\\Seguridad\\registrar.aspx.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAAAGMAAAARAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T13:42:33.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Login.aspx",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\Login.aspx",
+              "RelativeDocumentMoniker": "Monolito4_B\\Seguridad\\Login.aspx",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\Login.aspx",
+              "RelativeToolTip": "Monolito4_B\\Seguridad\\Login.aspx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-04-27T16:30:31.439Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Mail.cs",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\Mail.cs",
+              "RelativeDocumentMoniker": "capa_negocio\\Mail.cs",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\Mail.cs",
+              "RelativeToolTip": "capa_negocio\\Mail.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T14:41:19.616Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "registrar.aspx",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\registrar.aspx",
+              "RelativeDocumentMoniker": "Monolito4_B\\Seguridad\\registrar.aspx",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\registrar.aspx",
+              "RelativeToolTip": "Monolito4_B\\Seguridad\\registrar.aspx",
+              "LogicalView": "7651a702-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-04-27T16:53:58.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CN_tbl_usuario.cs",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\CN_tbl_usuario.cs",
+              "RelativeDocumentMoniker": "capa_negocio\\CN_tbl_usuario.cs",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\CN_tbl_usuario.cs",
+              "RelativeToolTip": "capa_negocio\\CN_tbl_usuario.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAAswD8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-05T14:21:17.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CN_tbl_tipo_usuario.cs",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\CN_tbl_tipo_usuario.cs",
+              "RelativeDocumentMoniker": "capa_negocio\\CN_tbl_tipo_usuario.cs",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\capa_negocio\\CN_tbl_tipo_usuario.cs",
+              "RelativeToolTip": "capa_negocio\\CN_tbl_tipo_usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T13:31:39.444Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

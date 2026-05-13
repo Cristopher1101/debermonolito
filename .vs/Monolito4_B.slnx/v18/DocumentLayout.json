@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|d:\\4to semestre\\aplicaciones distribuidas\\monolito4_b\\monolito4_b\\mantenimiento\\principal.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|solutionrelative:monolito4_b\\mantenimiento\\principal.master.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|d:\\4to semestre\\aplicaciones distribuidas\\monolito4_b\\monolito4_b\\seguridad\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|solutionrelative:monolito4_b\\seguridad\\login.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|d:\\4to semestre\\aplicaciones distribuidas\\monolito4_b\\monolito4_b\\mantenimiento\\principal.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{F9E9786B-C0A3-499D-AB49-08762D39635E}|Monolito4_B\\Monolito4_B.csproj|solutionrelative:monolito4_b\\mantenimiento\\principal.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.aspx.cs",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\Login.aspx.cs",
+              "RelativeDocumentMoniker": "Monolito4_B\\Seguridad\\Login.aspx.cs",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Seguridad\\Login.aspx.cs",
+              "RelativeToolTip": "Monolito4_B\\Seguridad\\Login.aspx.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAYwD8AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T14:33:04.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Principal.Master.cs",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Mantenimiento\\Principal.Master.cs",
+              "RelativeDocumentMoniker": "Monolito4_B\\Mantenimiento\\Principal.Master.cs",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Mantenimiento\\Principal.Master.cs",
+              "RelativeToolTip": "Monolito4_B\\Mantenimiento\\Principal.Master.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T14:30:52.112Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Principal.Master",
+              "DocumentMoniker": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Mantenimiento\\Principal.Master",
+              "RelativeDocumentMoniker": "Monolito4_B\\Mantenimiento\\Principal.Master",
+              "ToolTip": "D:\\4to Semestre\\Aplicaciones Distribuidas\\Monolito4_B\\Monolito4_B\\Mantenimiento\\Principal.Master",
+              "RelativeToolTip": "Monolito4_B\\Mantenimiento\\Principal.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-05-12T14:30:48.172Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

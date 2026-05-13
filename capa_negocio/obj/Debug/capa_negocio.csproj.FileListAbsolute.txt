@@ -1,0 +1,10 @@
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\bin\Debug\capa_negocio.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\bin\Debug\capa_negocio.pdb
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\bin\Debug\Capa_Datos.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\bin\Debug\Capa_Datos.pdb
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\obj\Debug\capa_negocio.csproj.AssemblyReference.cache
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\obj\Debug\capa_negocio.csproj.CoreCompileInputs.cache
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\obj\Debug\capa_neg.E7B6AF11.Up2Date
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\obj\Debug\capa_negocio.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\obj\Debug\capa_negocio.pdb
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\capa_negocio\bin\Debug\Capa_Datos.dll.config

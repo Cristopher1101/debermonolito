@@ -1,0 +1,7 @@
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\bin\Debug\Capa_Datos.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\bin\Debug\Capa_Datos.pdb
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\obj\Debug\Capa_Datos.csproj.AssemblyReference.cache
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\obj\Debug\Capa_Datos.csproj.CoreCompileInputs.cache
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\obj\Debug\Capa_Datos.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\obj\Debug\Capa_Datos.pdb
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Capa_Datos\bin\Debug\Capa_Datos.dll.config
