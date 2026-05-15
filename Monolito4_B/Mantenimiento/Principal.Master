@@ -1,20 +1,251 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="Monolito4_B.Mantenimiento.Principal" %>
 
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panel Monolito-4B</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(160deg, #f1f5f9 0%, #e8f0fe 45%, #f8fafc 100%);
+            color: #0f172a;
+        }
+
+        .sidebar {
+            width: 272px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 55%, #172554 100%);
+            color: #f8fafc;
+            padding: 28px 18px 24px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 12px 0 40px rgba(15, 23, 42, .18);
+            position: relative;
+        }
+
+        .sidebar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 10%, rgba(56, 189, 248, .12), transparent 45%);
+            pointer-events: none;
+        }
+
+        .brand {
+            position: relative;
+            z-index: 1;
+            padding: 0 8px 22px;
+            border-bottom: 1px solid rgba(148, 163, 184, .2);
+            margin-bottom: 22px;
+        }
+
+        .brand-mark {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            box-shadow: 0 8px 24px rgba(99, 102, 241, .45);
+        }
+
+        .brand h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            line-height: 1.25;
+        }
+
+        .brand span {
+            display: block;
+            font-size: .72rem;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-top: 2px;
+        }
+
+        .user-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(30, 41, 59, .65);
+            border: 1px solid rgba(148, 163, 184, .18);
+            border-radius: 16px;
+            padding: 16px 14px;
+            margin-bottom: 22px;
+        }
+
+        .user-card .lbl_nse {
+            font-size: .88rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            line-height: 1.45;
+            display: block;
+        }
+
+        .user-card .role-pill {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: .68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, .15);
+            color: #7dd3fc;
+            border: 1px solid rgba(56, 189, 248, .25);
+        }
+
+        .nav-menu {
+            list-style: none;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-menu li {
+            margin-bottom: 6px;
+        }
+
+        .nav-menu li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            transition: background .2s, color .2s, transform .15s;
+            font-size: .9rem;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .nav-menu li a:hover {
+            background: rgba(255, 255, 255, .08);
+            color: #fff;
+            transform: translateX(3px);
+        }
+
+        .nav-menu li a i {
+            font-size: 1.25rem;
+            opacity: .9;
+        }
+
+        .logout-btn {
+            color: #fca5a5;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            transition: .2s;
+            cursor: pointer;
+            border: 1px solid rgba(248, 113, 113, .2);
+            background: rgba(127, 29, 29, .15);
+            font-size: .9rem;
+            font-weight: 600;
+            width: 100%;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logout-btn:hover {
+            background: rgba(248, 113, 113, .18);
+            color: #fecaca;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 32px 36px 48px;
+            overflow-y: auto;
+            min-width: 0;
+        }
+
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; min-height: auto; flex-direction: row; flex-wrap: wrap; }
+            .nav-menu { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
+            .main-content { padding: 20px 16px 32px; }
+        }
+    </style>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        
+        <div class="sidebar">
+            <div class="brand">
+                <div class="brand-mark">
+                    <div class="brand-icon"><i class='bx bx-cube-alt'></i></div>
+                    <div>
+                        <h1>Monolito-4B</h1>
+                        <span>Panel distribuido</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-card">
+                <asp:Label ID="lbl_nse" runat="server" CssClass="lbl_nse" Text="Cargando..."></asp:Label>
+            </div>
+
+            <asp:Panel ID="adm" runat="server" Visible="false">
+                <ul class="nav-menu">
+                    <li><a href="Inicio.aspx"><i class='bx bx-grid-alt'></i> Inicio</a></li>
+                    <li><a href="MiPerfil.aspx"><i class='bx bx-user-circle'></i> Mi perfil</a></li>
+                    <li><a href="UsuariosAdmin.aspx"><i class='bx bx-group'></i> Usuarios</a></li>
+                    <li><a href="Desbloqueo.aspx"><i class='bx bx-lock-open-alt'></i> Desbloqueo</a></li>
+                </ul>
+            </asp:Panel>
+
+            <asp:Panel ID="usu" runat="server" Visible="false">
+                <ul class="nav-menu">
+                    <li><a href="Inicio.aspx"><i class='bx bx-grid-alt'></i> Inicio</a></li>
+                    <li><a href="MiPerfil.aspx"><i class='bx bx-user-circle'></i> Mi perfil</a></li>
+                    <li><a href="Juego.aspx"><i class='bx bx-joystick'></i> Zona de juegos</a></li>
+                </ul>
+            </asp:Panel>
+
+            <div style="flex-grow: 1;"></div>
+
+            <asp:LinkButton ID="btnCerrarSesion" runat="server" CssClass="logout-btn" OnClick="btnCerrarSesion_Click" CausesValidation="false">
+                <i class='bx bx-log-out'></i> Cerrar sesión
+            </asp:LinkButton>
+        </div>
+
+        <div class="main-content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+
     </form>
 </body>
 </html>

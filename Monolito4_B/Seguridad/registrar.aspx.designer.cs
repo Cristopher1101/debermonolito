@@ -23,6 +23,8 @@ namespace Monolito4_B.Seguridad
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm mainForm;
 
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
+
         /// <summary>
         /// Control ddlPerfil.
         /// </summary>
@@ -114,12 +116,40 @@ namespace Monolito4_B.Seguridad
         protected global::System.Web.UI.WebControls.TextBox regPassword;
 
         /// <summary>
-        /// Control btnRegisterASP.
+        /// Control imgPreview.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegisterASP;
+        protected global::System.Web.UI.WebControls.Image imgPreview;
+
+        /// <summary>
+        /// Control fuFotoPerfil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuFotoPerfil;
+
+        protected global::System.Web.UI.WebControls.FileUpload fuGaleria;
+        protected global::System.Web.UI.WebControls.Panel pnlGaleriaPrevia;
+        protected global::System.Web.UI.WebControls.Repeater rptGaleriaPrev;
+        protected global::System.Web.UI.WebControls.Label lblGaleriaResumen;
+
+        /// <summary>
+        /// Control btnPrevisualizar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrevisualizar;
+
+        /// <summary>
+        /// Control btnRegistrar.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Button btnRegistrar;
     }
 }

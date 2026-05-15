@@ -30,12 +30,15 @@ namespace Capa_Datos
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void Inserttbl_usuario(tbl_usuario instance);
-    partial void Updatetbl_usuario(tbl_usuario instance);
-    partial void Deletetbl_usuario(tbl_usuario instance);
     partial void Inserttbl_tipo_usuario(tbl_tipo_usuario instance);
     partial void Updatetbl_tipo_usuario(tbl_tipo_usuario instance);
     partial void Deletetbl_tipo_usuario(tbl_tipo_usuario instance);
+    partial void Inserttbl_usuario(tbl_usuario instance);
+    partial void Updatetbl_usuario(tbl_usuario instance);
+    partial void Deletetbl_usuario(tbl_usuario instance);
+    partial void Inserttbl_usuario_foto(tbl_usuario_foto instance);
+    partial void Updatetbl_usuario_foto(tbl_usuario_foto instance);
+    partial void Deletetbl_usuario_foto(tbl_usuario_foto instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -68,6 +71,14 @@ namespace Capa_Datos
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<tbl_tipo_usuario> tbl_tipo_usuario
+		{
+			get
+			{
+				return this.GetTable<tbl_tipo_usuario>();
+			}
+		}
+		
 		public System.Data.Linq.Table<tbl_usuario> tbl_usuario
 		{
 			get
@@ -76,11 +87,11 @@ namespace Capa_Datos
 			}
 		}
 		
-		public System.Data.Linq.Table<tbl_tipo_usuario> tbl_tipo_usuario
+		public System.Data.Linq.Table<tbl_usuario_foto> tbl_usuario_foto
 		{
 			get
 			{
-				return this.GetTable<tbl_tipo_usuario>();
+				return this.GetTable<tbl_usuario_foto>();
 			}
 		}
 		
@@ -101,6 +112,144 @@ namespace Capa_Datos
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((int)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_tipo_usuario")]
+	public partial class tbl_tipo_usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _tusu_id;
+		
+		private string _tusu_nombre;
+		
+		private System.Nullable<char> _tusu_estado;
+		
+		private EntitySet<tbl_usuario> _tbl_usuario;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Ontusu_idChanging(int value);
+    partial void Ontusu_idChanged();
+    partial void Ontusu_nombreChanging(string value);
+    partial void Ontusu_nombreChanged();
+    partial void Ontusu_estadoChanging(System.Nullable<char> value);
+    partial void Ontusu_estadoChanged();
+    #endregion
+		
+		public tbl_tipo_usuario()
+		{
+			this._tbl_usuario = new EntitySet<tbl_usuario>(new Action<tbl_usuario>(this.attach_tbl_usuario), new Action<tbl_usuario>(this.detach_tbl_usuario));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tusu_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int tusu_id
+		{
+			get
+			{
+				return this._tusu_id;
+			}
+			set
+			{
+				if ((this._tusu_id != value))
+				{
+					this.Ontusu_idChanging(value);
+					this.SendPropertyChanging();
+					this._tusu_id = value;
+					this.SendPropertyChanged("tusu_id");
+					this.Ontusu_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tusu_nombre", DbType="VarChar(50)")]
+		public string tusu_nombre
+		{
+			get
+			{
+				return this._tusu_nombre;
+			}
+			set
+			{
+				if ((this._tusu_nombre != value))
+				{
+					this.Ontusu_nombreChanging(value);
+					this.SendPropertyChanging();
+					this._tusu_nombre = value;
+					this.SendPropertyChanged("tusu_nombre");
+					this.Ontusu_nombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tusu_estado", DbType="Char(1)")]
+		public System.Nullable<char> tusu_estado
+		{
+			get
+			{
+				return this._tusu_estado;
+			}
+			set
+			{
+				if ((this._tusu_estado != value))
+				{
+					this.Ontusu_estadoChanging(value);
+					this.SendPropertyChanging();
+					this._tusu_estado = value;
+					this.SendPropertyChanged("tusu_estado");
+					this.Ontusu_estadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_tipo_usuario_tbl_usuario", Storage="_tbl_usuario", ThisKey="tusu_id", OtherKey="tusu_id")]
+		public EntitySet<tbl_usuario> tbl_usuario
+		{
+			get
+			{
+				return this._tbl_usuario;
+			}
+			set
+			{
+				this._tbl_usuario.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_tbl_usuario(tbl_usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_tipo_usuario = this;
+		}
+		
+		private void detach_tbl_usuario(tbl_usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_tipo_usuario = null;
 		}
 	}
 	
@@ -142,6 +291,10 @@ namespace Capa_Datos
 		
 		private System.Nullable<System.DateTime> _usu_fecha_ultimo_intento;
 		
+		private System.Data.Linq.Binary _usu_foto_perfil;
+		
+		private EntitySet<tbl_usuario_foto> _tbl_usuario_foto;
+		
 		private EntityRef<tbl_tipo_usuario> _tbl_tipo_usuario;
 		
     #region Definiciones de métodos de extensibilidad
@@ -180,10 +333,13 @@ namespace Capa_Datos
     partial void Ontusu_idChanged();
     partial void Onusu_fecha_ultimo_intentoChanging(System.Nullable<System.DateTime> value);
     partial void Onusu_fecha_ultimo_intentoChanged();
+    partial void Onusu_foto_perfilChanging(System.Data.Linq.Binary value);
+    partial void Onusu_foto_perfilChanged();
     #endregion
 		
 		public tbl_usuario()
 		{
+			this._tbl_usuario_foto = new EntitySet<tbl_usuario_foto>(new Action<tbl_usuario_foto>(this.attach_tbl_usuario_foto), new Action<tbl_usuario_foto>(this.detach_tbl_usuario_foto));
 			this._tbl_tipo_usuario = default(EntityRef<tbl_tipo_usuario>);
 			OnCreated();
 		}
@@ -428,7 +584,7 @@ namespace Capa_Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_codigo_OTP", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_codigo_OTP", DbType="VarChar(512)")]
 		public string usu_codigo_OTP
 		{
 			get
@@ -512,6 +668,39 @@ namespace Capa_Datos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_foto_perfil", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary usu_foto_perfil
+		{
+			get
+			{
+				return this._usu_foto_perfil;
+			}
+			set
+			{
+				if ((this._usu_foto_perfil != value))
+				{
+					this.Onusu_foto_perfilChanging(value);
+					this.SendPropertyChanging();
+					this._usu_foto_perfil = value;
+					this.SendPropertyChanged("usu_foto_perfil");
+					this.Onusu_foto_perfilChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_usuario_tbl_usuario_foto", Storage="_tbl_usuario_foto", ThisKey="usu_id", OtherKey="usu_id")]
+		public EntitySet<tbl_usuario_foto> tbl_usuario_foto
+		{
+			get
+			{
+				return this._tbl_usuario_foto;
+			}
+			set
+			{
+				this._tbl_usuario_foto.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_tipo_usuario_tbl_usuario", Storage="_tbl_tipo_usuario", ThisKey="tusu_id", OtherKey="tusu_id", IsForeignKey=true)]
 		public tbl_tipo_usuario tbl_tipo_usuario
 		{
@@ -565,110 +754,171 @@ namespace Capa_Datos
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_tbl_usuario_foto(tbl_usuario_foto entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_usuario = this;
+		}
+		
+		private void detach_tbl_usuario_foto(tbl_usuario_foto entity)
+		{
+			this.SendPropertyChanging();
+			entity.tbl_usuario = null;
+		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_tipo_usuario")]
-	public partial class tbl_tipo_usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_usuario_foto")]
+	public partial class tbl_usuario_foto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _tusu_id;
+		private int _ufoto_id;
 		
-		private string _tusu_nombre;
+		private int _usu_id;
 		
-		private System.Nullable<char> _tusu_estado;
+		private System.Data.Linq.Binary _ufoto_datos;
 		
-		private EntitySet<tbl_usuario> _tbl_usuario;
+		private System.Nullable<bool> _ufoto_es_principal;
+		
+		private EntityRef<tbl_usuario> _tbl_usuario;
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Ontusu_idChanging(int value);
-    partial void Ontusu_idChanged();
-    partial void Ontusu_nombreChanging(string value);
-    partial void Ontusu_nombreChanged();
-    partial void Ontusu_estadoChanging(System.Nullable<char> value);
-    partial void Ontusu_estadoChanged();
+    partial void Onufoto_idChanging(int value);
+    partial void Onufoto_idChanged();
+    partial void Onusu_idChanging(int value);
+    partial void Onusu_idChanged();
+    partial void Onufoto_datosChanging(System.Data.Linq.Binary value);
+    partial void Onufoto_datosChanged();
+    partial void Onufoto_es_principalChanging(System.Nullable<bool> value);
+    partial void Onufoto_es_principalChanged();
     #endregion
 		
-		public tbl_tipo_usuario()
+		public tbl_usuario_foto()
 		{
-			this._tbl_usuario = new EntitySet<tbl_usuario>(new Action<tbl_usuario>(this.attach_tbl_usuario), new Action<tbl_usuario>(this.detach_tbl_usuario));
+			this._tbl_usuario = default(EntityRef<tbl_usuario>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tusu_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int tusu_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ufoto_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ufoto_id
 		{
 			get
 			{
-				return this._tusu_id;
+				return this._ufoto_id;
 			}
 			set
 			{
-				if ((this._tusu_id != value))
+				if ((this._ufoto_id != value))
 				{
-					this.Ontusu_idChanging(value);
+					this.Onufoto_idChanging(value);
 					this.SendPropertyChanging();
-					this._tusu_id = value;
-					this.SendPropertyChanged("tusu_id");
-					this.Ontusu_idChanged();
+					this._ufoto_id = value;
+					this.SendPropertyChanged("ufoto_id");
+					this.Onufoto_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tusu_nombre", DbType="VarChar(50)")]
-		public string tusu_nombre
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_usu_id", DbType="Int NOT NULL")]
+		public int usu_id
 		{
 			get
 			{
-				return this._tusu_nombre;
+				return this._usu_id;
 			}
 			set
 			{
-				if ((this._tusu_nombre != value))
+				if ((this._usu_id != value))
 				{
-					this.Ontusu_nombreChanging(value);
+					if (this._tbl_usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onusu_idChanging(value);
 					this.SendPropertyChanging();
-					this._tusu_nombre = value;
-					this.SendPropertyChanged("tusu_nombre");
-					this.Ontusu_nombreChanged();
+					this._usu_id = value;
+					this.SendPropertyChanged("usu_id");
+					this.Onusu_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tusu_estado", DbType="Char(1)")]
-		public System.Nullable<char> tusu_estado
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ufoto_datos", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary ufoto_datos
 		{
 			get
 			{
-				return this._tusu_estado;
+				return this._ufoto_datos;
 			}
 			set
 			{
-				if ((this._tusu_estado != value))
+				if ((this._ufoto_datos != value))
 				{
-					this.Ontusu_estadoChanging(value);
+					this.Onufoto_datosChanging(value);
 					this.SendPropertyChanging();
-					this._tusu_estado = value;
-					this.SendPropertyChanged("tusu_estado");
-					this.Ontusu_estadoChanged();
+					this._ufoto_datos = value;
+					this.SendPropertyChanged("ufoto_datos");
+					this.Onufoto_datosChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_tipo_usuario_tbl_usuario", Storage="_tbl_usuario", ThisKey="tusu_id", OtherKey="tusu_id")]
-		public EntitySet<tbl_usuario> tbl_usuario
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ufoto_es_principal", DbType="Bit")]
+		public System.Nullable<bool> ufoto_es_principal
 		{
 			get
 			{
-				return this._tbl_usuario;
+				return this._ufoto_es_principal;
 			}
 			set
 			{
-				this._tbl_usuario.Assign(value);
+				if ((this._ufoto_es_principal != value))
+				{
+					this.Onufoto_es_principalChanging(value);
+					this.SendPropertyChanging();
+					this._ufoto_es_principal = value;
+					this.SendPropertyChanged("ufoto_es_principal");
+					this.Onufoto_es_principalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="tbl_usuario_tbl_usuario_foto", Storage="_tbl_usuario", ThisKey="usu_id", OtherKey="usu_id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public tbl_usuario tbl_usuario
+		{
+			get
+			{
+				return this._tbl_usuario.Entity;
+			}
+			set
+			{
+				tbl_usuario previousValue = this._tbl_usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._tbl_usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._tbl_usuario.Entity = null;
+						previousValue.tbl_usuario_foto.Remove(this);
+					}
+					this._tbl_usuario.Entity = value;
+					if ((value != null))
+					{
+						value.tbl_usuario_foto.Add(this);
+						this._usu_id = value.usu_id;
+					}
+					else
+					{
+						this._usu_id = default(int);
+					}
+					this.SendPropertyChanged("tbl_usuario");
+				}
 			}
 		}
 		
@@ -690,18 +940,6 @@ namespace Capa_Datos
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_tbl_usuario(tbl_usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_tipo_usuario = this;
-		}
-		
-		private void detach_tbl_usuario(tbl_usuario entity)
-		{
-			this.SendPropertyChanging();
-			entity.tbl_tipo_usuario = null;
 		}
 	}
 }

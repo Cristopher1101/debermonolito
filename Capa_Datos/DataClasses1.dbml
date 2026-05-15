@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Monolito4am" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=NEO\CRISTOPHER;Initial Catalog=Monolito4am;Integrated Security=True;Encrypt=False" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="Monolito4amConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_tipo_usuario" Member="tbl_tipo_usuario">
+    <Type Name="tbl_tipo_usuario">
+      <Column Name="tusu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tusu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="tusu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="tbl_tipo_usuario_tbl_usuario" Member="tbl_usuario" ThisKey="tusu_id" OtherKey="tusu_id" Type="tbl_usuario" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_usuario" Member="tbl_usuario">
     <Type Name="tbl_usuario">
       <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -14,19 +22,22 @@
       <Column Name="usu_nick" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="usu_contraseña" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="usu_intentos" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="usu_codigo_OTP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="usu_codigo_OTP" Type="System.String" DbType="VarChar(512)" CanBeNull="true" />
       <Column Name="usu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="tusu_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="usu_fecha_ultimo_intento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="usu_foto_perfil" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="tbl_usuario_tbl_usuario_foto" Member="tbl_usuario_foto" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_usuario_foto" />
       <Association Name="tbl_tipo_usuario_tbl_usuario" Member="tbl_tipo_usuario" ThisKey="tusu_id" OtherKey="tusu_id" Type="tbl_tipo_usuario" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.tbl_tipo_usuario" Member="tbl_tipo_usuario">
-    <Type Name="tbl_tipo_usuario">
-      <Column Name="tusu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="tusu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="tusu_estado" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
-      <Association Name="tbl_tipo_usuario_tbl_usuario" Member="tbl_usuario" ThisKey="tusu_id" OtherKey="tusu_id" Type="tbl_usuario" />
+  <Table Name="dbo.tbl_usuario_foto" Member="tbl_usuario_foto">
+    <Type Name="tbl_usuario_foto">
+      <Column Name="ufoto_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ufoto_datos" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ufoto_es_principal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tbl_usuario_tbl_usuario_foto" Member="tbl_usuario" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.desencriptacion" Method="desencriptacion" IsComposable="true">

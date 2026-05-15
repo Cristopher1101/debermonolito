@@ -66,7 +66,7 @@ namespace Monolito4_B.Seguridad
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnLogin;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
         /// Control pnlOTP.
@@ -76,6 +76,11 @@ namespace Monolito4_B.Seguridad
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlOTP;
+
+        /// <summary>
+        /// Control litSubtituloOtp.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Literal litSubtituloOtp;
 
         /// <summary>
         /// Control txt_otp.
@@ -93,7 +98,7 @@ namespace Monolito4_B.Seguridad
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton btnVerifyOTP;
+        protected global::System.Web.UI.WebControls.Button btnVerifyOTP;
 
         /// <summary>
         /// Control lnkResend.

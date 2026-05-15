@@ -150,7 +150,13 @@
     <Content Include="Content\bootstrap-grid.rtl.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Mantenimiento\Principal.Master" />
+    <Content Include="Mantenimiento\MiPerfil.aspx" />
+    <Content Include="Mantenimiento\Inicio.aspx" />
+    <Content Include="Mantenimiento\Desbloqueo.aspx" />
+    <Content Include="Mantenimiento\UsuariosAdmin.aspx" />
+    <Content Include="Mantenimiento\Juego.aspx" />
+    <Content Include="Seguridad\RegistroExito.aspx" />
+    <Content Include="Seguridad\OtpQr.aspx" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -179,6 +185,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Seguridad\Login.aspx" />
+    <Content Include="Seguridad\Recuperar.aspx" />
     <Content Include="Seguridad\registrar.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -189,6 +196,55 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\MiPerfil.aspx.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\MiPerfil.aspx.designer.cs">
+      <DependentUpon>MiPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\Desbloqueo.aspx.cs">
+      <DependentUpon>Desbloqueo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\Desbloqueo.aspx.designer.cs">
+      <DependentUpon>Desbloqueo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\UsuariosAdmin.aspx.cs">
+      <DependentUpon>UsuariosAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\UsuariosAdmin.aspx.designer.cs">
+      <DependentUpon>UsuariosAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\Juego.aspx.cs">
+      <DependentUpon>Juego.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\Juego.aspx.designer.cs">
+      <DependentUpon>Juego.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\RegistroExito.aspx.cs">
+      <DependentUpon>RegistroExito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seguridad\RegistroExito.aspx.designer.cs">
+      <DependentUpon>RegistroExito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\OtpQr.aspx.cs">
+      <DependentUpon>OtpQr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seguridad\OtpQr.aspx.designer.cs">
+      <DependentUpon>OtpQr.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento\Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
@@ -204,6 +260,13 @@
     </Compile>
     <Compile Include="Seguridad\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\Recuperar.aspx.cs">
+      <DependentUpon>Recuperar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Seguridad\Recuperar.aspx.designer.cs">
+      <DependentUpon>Recuperar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Seguridad\registrar.aspx.cs">
       <DependentUpon>registrar.aspx</DependentUpon>
