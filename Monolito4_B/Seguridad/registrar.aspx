@@ -417,7 +417,7 @@
     </style>
 </head>
 <body>
-    <form id="mainForm" runat="server">
+    <form id="mainForm" runat="server" autocomplete="off">
         <div class="card card--compact">
             <div class="card-title">Tipo de cuenta</div>
             <p style="text-align:center;font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:14px;line-height:1.45;">El registro público es solo como <strong>usuario</strong>. Los administradores los crea otro administrador desde el panel.</p>
@@ -786,5 +786,6 @@
             });
         });
     </script>
+    <script src="<%= ResolveUrl("~/Scripts/disable-form-autofill.js") %>" defer></script>
 </body>
 </html>

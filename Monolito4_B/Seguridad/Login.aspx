@@ -568,5 +568,6 @@
         })();
 
     </script>
+    <script src="<%= ResolveUrl("~/Scripts/disable-form-autofill.js") %>" defer></script>
 </body>
 </html>

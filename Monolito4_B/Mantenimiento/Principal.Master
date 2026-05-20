@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.master.cs" Inherits="Monolito4_B.Mantenimiento.Principal" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Principal.Master.cs" Inherits="Monolito4_B.Mantenimiento.Principal" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -6,36 +6,53 @@
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Panel Monolito-4B</title>
-    
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Panel Monolito 4B</title>
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+            font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
         }
 
         body {
-            display: flex;
-            min-height: 100vh;
-            background: linear-gradient(160deg, #f1f5f9 0%, #e8f0fe 45%, #f8fafc 100%);
+            background: linear-gradient(165deg, #eef2ff 0%, #f1f5f9 40%, #f8fafc 100%);
             color: #0f172a;
         }
 
-        .sidebar {
-            width: 272px;
+        /* Web Forms: el <form> es el único hijo directo de body; el flex va aquí para sidebar + contenido en fila */
+        body > form {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            flex: 1;
             min-height: 100vh;
-            background: linear-gradient(180deg, #0f172a 0%, #1e293b 55%, #172554 100%);
+            width: 100%;
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            min-height: 100vh;
+            align-self: stretch;
+            background: linear-gradient(195deg, #0f172a 0%, #1e293b 50%, #1e1b4b 100%);
             color: #f8fafc;
-            padding: 28px 18px 24px;
+            padding: 26px 16px 22px;
             display: flex;
             flex-direction: column;
-            box-shadow: 12px 0 40px rgba(15, 23, 42, .18);
+            box-shadow: 14px 0 48px rgba(15, 23, 42, 0.22);
             position: relative;
         }
 
@@ -43,16 +60,17 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 20% 10%, rgba(56, 189, 248, .12), transparent 45%);
+            background: radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.14), transparent 42%),
+                radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.12), transparent 40%);
             pointer-events: none;
         }
 
         .brand {
             position: relative;
             z-index: 1;
-            padding: 0 8px 22px;
-            border-bottom: 1px solid rgba(148, 163, 184, .2);
-            margin-bottom: 22px;
+            padding: 0 8px 20px;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+            margin-bottom: 20px;
         }
 
         .brand-mark {
@@ -62,73 +80,107 @@
         }
 
         .brand-icon {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 14px;
             background: linear-gradient(135deg, #38bdf8, #6366f1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.35rem;
-            box-shadow: 0 8px 24px rgba(99, 102, 241, .45);
+            font-size: 1.4rem;
+            box-shadow: 0 10px 28px rgba(99, 102, 241, 0.45);
         }
 
         .brand h1 {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             font-weight: 700;
-            letter-spacing: -.02em;
+            letter-spacing: -0.02em;
             line-height: 1.25;
         }
 
         .brand span {
             display: block;
-            font-size: .72rem;
+            font-size: 0.72rem;
             font-weight: 500;
             color: #94a3b8;
-            margin-top: 2px;
+            margin-top: 3px;
         }
 
         .user-card {
             position: relative;
             z-index: 1;
-            background: rgba(30, 41, 59, .65);
-            border: 1px solid rgba(148, 163, 184, .18);
+            background: rgba(15, 23, 42, 0.55);
+            border: 1px solid rgba(148, 163, 184, 0.2);
             border-radius: 16px;
-            padding: 16px 14px;
-            margin-bottom: 22px;
+            padding: 14px 12px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+        }
+
+        .user-card-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .user-card-body {
+            min-width: 0;
+            flex: 1;
+        }
+
+        .role-pill {
+            display: inline-block;
+            margin-bottom: 6px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(56, 189, 248, 0.18);
+            color: #7dd3fc;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .role-pill.role-admin {
+            background: rgba(167, 139, 250, 0.2);
+            color: #ddd6fe;
+            border-color: rgba(167, 139, 250, 0.35);
         }
 
         .user-card .lbl_nse {
-            font-size: .88rem;
+            font-size: 0.86rem;
             font-weight: 600;
             color: #f1f5f9;
-            line-height: 1.45;
+            line-height: 1.35;
             display: block;
+            word-break: break-word;
         }
 
-        .user-card .role-pill {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: .68rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-            padding: 5px 10px;
-            border-radius: 999px;
-            background: rgba(56, 189, 248, .15);
-            color: #7dd3fc;
-            border: 1px solid rgba(56, 189, 248, .25);
+        .nav-wrap {
+            position: relative;
+            z-index: 1;
+            flex-grow: 1;
+            min-height: 0;
         }
 
         .nav-menu {
             list-style: none;
-            flex-grow: 1;
-            position: relative;
-            z-index: 1;
         }
 
         .nav-menu li {
-            margin-bottom: 6px;
+            margin-bottom: 5px;
         }
 
         .nav-menu li a {
@@ -136,49 +188,50 @@
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 12px 14px;
+            gap: 12px;
+            padding: 11px 12px;
             border-radius: 12px;
-            transition: background .2s, color .2s, transform .15s;
-            font-size: .9rem;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
+            font-size: 0.9rem;
             font-weight: 500;
             border: 1px solid transparent;
         }
 
         .nav-menu li a:hover {
-            background: rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, 0.09);
             color: #fff;
             transform: translateX(3px);
         }
 
         .nav-menu li a i {
-            font-size: 1.25rem;
-            opacity: .9;
+            font-size: 1.22rem;
+            opacity: 0.92;
         }
 
         .logout-btn {
-            color: #fca5a5;
+            color: #fecaca;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 12px 14px;
+            gap: 12px;
+            padding: 11px 12px;
             border-radius: 12px;
-            transition: .2s;
+            transition: 0.2s;
             cursor: pointer;
-            border: 1px solid rgba(248, 113, 113, .2);
-            background: rgba(127, 29, 29, .15);
-            font-size: .9rem;
+            border: 1px solid rgba(248, 113, 113, 0.28);
+            background: rgba(127, 29, 29, 0.22);
+            font-size: 0.88rem;
             font-weight: 600;
             width: 100%;
             text-align: left;
             position: relative;
             z-index: 1;
+            margin-top: 8px;
         }
 
         .logout-btn:hover {
-            background: rgba(248, 113, 113, .18);
-            color: #fecaca;
+            background: rgba(248, 113, 113, 0.22);
+            color: #fff;
         }
 
         .main-content {
@@ -189,10 +242,27 @@
         }
 
         @media (max-width: 900px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; min-height: auto; flex-direction: row; flex-wrap: wrap; }
-            .nav-menu { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; }
-            .main-content { padding: 20px 16px 32px; }
+            body > form {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                min-height: auto;
+                align-self: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .nav-wrap {
+                width: 100%;
+            }
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+            .main-content {
+                padding: 20px 16px 32px;
+            }
         }
     </style>
 
@@ -200,44 +270,52 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        
+    <form id="form1" runat="server" autocomplete="off">
         <div class="sidebar">
             <div class="brand">
                 <div class="brand-mark">
-                    <div class="brand-icon"><i class='bx bx-cube-alt'></i></div>
+                    <div class="brand-icon"><i class="bx bx-cube-alt"></i></div>
                     <div>
-                        <h1>Monolito-4B</h1>
-                        <span>Panel distribuido</span>
+                        <h1>Monolito 4B</h1>
+                        <span>Panel de aplicación</span>
                     </div>
                 </div>
             </div>
 
             <div class="user-card">
-                <asp:Label ID="lbl_nse" runat="server" CssClass="lbl_nse" Text="Cargando..."></asp:Label>
+                <div class="user-card-row">
+                    <asp:Image ID="imgSidebarAvatar" runat="server" CssClass="sidebar-avatar" AlternateText="Foto de perfil" />
+                    <div class="user-card-body">
+                        <asp:Label ID="lblRolBadge" runat="server" CssClass="role-pill" Text="—" />
+                        <asp:Label ID="lbl_nse" runat="server" CssClass="lbl_nse" Text="Cargando…"></asp:Label>
+                    </div>
+                </div>
             </div>
 
-            <asp:Panel ID="adm" runat="server" Visible="false">
-                <ul class="nav-menu">
-                    <li><a href="Inicio.aspx"><i class='bx bx-grid-alt'></i> Inicio</a></li>
-                    <li><a href="MiPerfil.aspx"><i class='bx bx-user-circle'></i> Mi perfil</a></li>
-                    <li><a href="UsuariosAdmin.aspx"><i class='bx bx-group'></i> Usuarios</a></li>
-                    <li><a href="Desbloqueo.aspx"><i class='bx bx-lock-open-alt'></i> Desbloqueo</a></li>
-                </ul>
-            </asp:Panel>
+            <div class="nav-wrap">
+                <asp:Panel ID="adm" runat="server" Visible="false">
+                    <ul class="nav-menu">
+                        <li><a href="Inicio.aspx"><i class="bx bx-grid-alt"></i> Inicio</a></li>
+                        <li><a href="MiPerfil.aspx"><i class="bx bx-user-circle"></i> Mi perfil</a></li>
+                        <li><a href="UsuariosAdmin.aspx"><i class="bx bx-group"></i> Usuarios</a></li>
+                        <li><a href="Desbloqueo.aspx"><i class="bx bx-lock-open-alt"></i> Desbloqueo</a></li>
+                        <li><a href="Juego.aspx"><i class="bx bx-joystick"></i> 3 en raya</a></li>
+                    </ul>
+                </asp:Panel>
 
-            <asp:Panel ID="usu" runat="server" Visible="false">
-                <ul class="nav-menu">
-                    <li><a href="Inicio.aspx"><i class='bx bx-grid-alt'></i> Inicio</a></li>
-                    <li><a href="MiPerfil.aspx"><i class='bx bx-user-circle'></i> Mi perfil</a></li>
-                    <li><a href="Juego.aspx"><i class='bx bx-joystick'></i> Zona de juegos</a></li>
-                </ul>
-            </asp:Panel>
+                <asp:Panel ID="usu" runat="server" Visible="false">
+                    <ul class="nav-menu">
+                        <li><a href="Inicio.aspx"><i class="bx bx-grid-alt"></i> Inicio</a></li>
+                        <li><a href="MiPerfil.aspx"><i class="bx bx-user-circle"></i> Mi perfil</a></li>
+                        <li><a href="Juego.aspx"><i class="bx bx-joystick"></i> 3 en raya</a></li>
+                    </ul>
+                </asp:Panel>
+            </div>
 
-            <div style="flex-grow: 1;"></div>
+            <div style="flex-grow: 1; min-height: 8px;"></div>
 
             <asp:LinkButton ID="btnCerrarSesion" runat="server" CssClass="logout-btn" OnClick="btnCerrarSesion_Click" CausesValidation="false">
-                <i class='bx bx-log-out'></i> Cerrar sesión
+                <i class="bx bx-log-out"></i> Cerrar sesión
             </asp:LinkButton>
         </div>
 
@@ -245,7 +323,7 @@
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-
+        <script src="<%= ResolveUrl("~/Scripts/disable-form-autofill.js") %>" defer></script>
     </form>
 </body>
 </html>
