@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrowserSensitiveCookies.cs" />
+    <Compile Include="CN_tbl_producto.cs" />
+    <Compile Include="CN_tbl_proveedor.cs" />
     <Compile Include="CN_tbl_tipo_usuario.cs" />
     <Compile Include="CN_tbl_usuario.cs" />
     <Compile Include="FotoSubidaReglas.cs" />

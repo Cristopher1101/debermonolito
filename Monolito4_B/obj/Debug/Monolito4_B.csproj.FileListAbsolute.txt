@@ -79,3 +79,5 @@ D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Monolito4_B\bin\capa_negoc
 D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Monolito4_B\bin\Capa_Datos.dll.config
 D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Monolito4_B\bin\SimpleCrypto.dll
 D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Monolito4_B\bin\QRCoder.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Monolito4_B\bin\EPPlus.dll
+D:\4to Semestre\Aplicaciones Distribuidas\Monolito4_B\Monolito4_B\bin\EPPlus.xml

@@ -26,11 +26,22 @@ namespace Capa_Datos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NEO\\CRISTOPHER;Initial Catalog=Monolito4am;Integrated Security=True;E" +
-            "ncrypt=False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NEO\\CRISTOPHER;Initial Catalog=Monolito4am;User ID=sa;Password=******" +
+            "*****;Encrypt=False")]
         public string Monolito4amConnectionString {
             get {
                 return ((string)(this["Monolito4amConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NEO\\CRISTOPHER;Initial Catalog=Monolito4am;Integrated Security=True;E" +
+            "ncrypt=False")]
+        public string Monolito4amConnectionString1 {
+            get {
+                return ((string)(this["Monolito4amConnectionString1"]));
             }
         }
     }

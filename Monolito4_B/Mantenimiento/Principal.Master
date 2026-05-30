@@ -20,8 +20,7 @@
             font-family: "Plus Jakarta Sans", system-ui, sans-serif;
         }
 
-        html,
-        body {
+        html, body {
             height: 100%;
             margin: 0;
         }
@@ -31,16 +30,15 @@
             color: #0f172a;
         }
 
-        /* Web Forms: el <form> es el único hijo directo de body; el flex va aquí para sidebar + contenido en fila */
-        body > form {
-            display: flex;
-            flex-direction: row;
-            align-items: stretch;
-            flex: 1;
-            min-height: 100vh;
-            width: 100%;
-            margin: 0;
-        }
+            body > form {
+                display: flex;
+                flex-direction: row;
+                align-items: stretch;
+                flex: 1;
+                min-height: 100vh;
+                width: 100%;
+                margin: 0;
+            }
 
         .sidebar {
             width: 280px;
@@ -56,14 +54,13 @@
             position: relative;
         }
 
-        .sidebar::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.14), transparent 42%),
-                radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.12), transparent 40%);
-            pointer-events: none;
-        }
+            .sidebar::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(circle at 15% 0%, rgba(56, 189, 248, 0.14), transparent 42%), radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.12), transparent 40%);
+                pointer-events: none;
+            }
 
         .brand {
             position: relative;
@@ -153,11 +150,11 @@
             border: 1px solid rgba(56, 189, 248, 0.3);
         }
 
-        .role-pill.role-admin {
-            background: rgba(167, 139, 250, 0.2);
-            color: #ddd6fe;
-            border-color: rgba(167, 139, 250, 0.35);
-        }
+            .role-pill.role-admin {
+                background: rgba(167, 139, 250, 0.2);
+                color: #ddd6fe;
+                border-color: rgba(167, 139, 250, 0.35);
+            }
 
         .user-card .lbl_nse {
             font-size: 0.86rem;
@@ -179,34 +176,34 @@
             list-style: none;
         }
 
-        .nav-menu li {
-            margin-bottom: 5px;
-        }
+            .nav-menu li {
+                margin-bottom: 5px;
+            }
 
-        .nav-menu li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 11px 12px;
-            border-radius: 12px;
-            transition: background 0.2s, color 0.2s, transform 0.15s;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid transparent;
-        }
+                .nav-menu li a {
+                    color: #cbd5e1;
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 11px 12px;
+                    border-radius: 12px;
+                    transition: background 0.2s, color 0.2s, transform 0.15s;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    border: 1px solid transparent;
+                }
 
-        .nav-menu li a:hover {
-            background: rgba(255, 255, 255, 0.09);
-            color: #fff;
-            transform: translateX(3px);
-        }
+                    .nav-menu li a:hover {
+                        background: rgba(255, 255, 255, 0.09);
+                        color: #fff;
+                        transform: translateX(3px);
+                    }
 
-        .nav-menu li a i {
-            font-size: 1.22rem;
-            opacity: 0.92;
-        }
+                    .nav-menu li a i {
+                        font-size: 1.22rem;
+                        opacity: 0.92;
+                    }
 
         .logout-btn {
             color: #fecaca;
@@ -229,10 +226,10 @@
             margin-top: 8px;
         }
 
-        .logout-btn:hover {
-            background: rgba(248, 113, 113, 0.22);
-            color: #fff;
-        }
+            .logout-btn:hover {
+                background: rgba(248, 113, 113, 0.22);
+                color: #fff;
+            }
 
         .main-content {
             flex-grow: 1;
@@ -245,6 +242,7 @@
             body > form {
                 flex-direction: column;
             }
+
             .sidebar {
                 width: 100%;
                 min-height: auto;
@@ -252,14 +250,17 @@
                 flex-direction: row;
                 flex-wrap: wrap;
             }
+
             .nav-wrap {
                 width: 100%;
             }
+
             .nav-menu {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 6px;
             }
+
             .main-content {
                 padding: 20px 16px 32px;
             }
@@ -295,19 +296,31 @@
             <div class="nav-wrap">
                 <asp:Panel ID="adm" runat="server" Visible="false">
                     <ul class="nav-menu">
-                        <li><a href="Inicio.aspx"><i class="bx bx-grid-alt"></i> Inicio</a></li>
-                        <li><a href="MiPerfil.aspx"><i class="bx bx-user-circle"></i> Mi perfil</a></li>
-                        <li><a href="UsuariosAdmin.aspx"><i class="bx bx-group"></i> Usuarios</a></li>
-                        <li><a href="Desbloqueo.aspx"><i class="bx bx-lock-open-alt"></i> Desbloqueo</a></li>
-                        <li><a href="Juego.aspx"><i class="bx bx-joystick"></i> 3 en raya</a></li>
+                        <li><a href="Inicio.aspx"><i class="bx bx-grid-alt"></i>Inicio</a></li>
+                        <li><a href="MiPerfil.aspx"><i class="bx bx-user-circle"></i>Mi perfil</a></li>
+                        <li><a href="UsuariosAdmin.aspx"><i class="bx bx-group"></i>Usuarios</a></li>
+                        <li><a href="Desbloqueo.aspx"><i class="bx bx-lock-open-alt"></i>Desbloqueo</a></li>
+
+                        <!-- NUEVOS ENLACES DE PRODUCTOS PARA ADMIN -->
+                        <li><a href="listar_tbl_producto.aspx"><i class="bx bx-box"></i>Productos</a></li>
+                        <li><a href="nuevo_tbl_producto.aspx"><i class="bx bx-plus-circle"></i>Nuevo Producto</a></li>
+                        
+                        <!-- ENLACES DE PROVEEDORES -->
+                        <li><a href="listar_tbl_proveedor.aspx"><i class="bx bx-store"></i>Proveedores</a></li>
+
+                        <li><a href="Juego.aspx"><i class="bx bx-joystick"></i>3 en raya</a></li>
                     </ul>
                 </asp:Panel>
 
                 <asp:Panel ID="usu" runat="server" Visible="false">
                     <ul class="nav-menu">
-                        <li><a href="Inicio.aspx"><i class="bx bx-grid-alt"></i> Inicio</a></li>
-                        <li><a href="MiPerfil.aspx"><i class="bx bx-user-circle"></i> Mi perfil</a></li>
-                        <li><a href="Juego.aspx"><i class="bx bx-joystick"></i> 3 en raya</a></li>
+                        <li><a href="Inicio.aspx"><i class="bx bx-grid-alt"></i>Inicio</a></li>
+                        <li><a href="MiPerfil.aspx"><i class="bx bx-user-circle"></i>Mi perfil</a></li>
+
+                        <!-- NUEVO ENLACE DE PRODUCTOS PARA USUARIO NORMAL -->
+                        <li><a href="listar_tbl_producto.aspx"><i class="bx bx-box"></i>Ver Productos</a></li>
+
+                        <li><a href="Juego.aspx"><i class="bx bx-joystick"></i>3 en raya</a></li>
                     </ul>
                 </asp:Panel>
             </div>
@@ -320,7 +333,12 @@
         </div>
 
         <div class="main-content">
+            <!-- Placeholders para que el contenido de tus páginas se inyecte aquí -->
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+            <!-- Añadido cph_contenido que usabas en tus páginas de productos -->
+            <asp:ContentPlaceHolder ID="cph_contenido" runat="server">
             </asp:ContentPlaceHolder>
         </div>
         <script src="<%= ResolveUrl("~/Scripts/disable-form-autofill.js") %>" defer></script>

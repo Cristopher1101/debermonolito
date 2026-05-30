@@ -96,6 +96,9 @@
     <Reference Include="Microsoft.AspNet.FriendlyUrls">
       <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.4.5.3.3\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -192,6 +195,12 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
+    <Content Include="Mantenimiento\listar_tbl_proveedor.aspx" />
+    <Content Include="Mantenimiento\nuevo_tbl_proveedor.aspx" />
+    <Content Include="Mantenimiento\importar_productos.aspx" />
+    <Content Include="Mantenimiento\estadisticas_producto.aspx" />
+    <Content Include="Mantenimiento\listar_tbl_producto.aspx" />
+    <Content Include="Mantenimiento\nuevo_tbl_producto.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -283,6 +292,48 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\listar_tbl_proveedor.aspx.cs">
+      <DependentUpon>listar_tbl_proveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\listar_tbl_proveedor.aspx.designer.cs">
+      <DependentUpon>listar_tbl_proveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\nuevo_tbl_proveedor.aspx.cs">
+      <DependentUpon>nuevo_tbl_proveedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\nuevo_tbl_proveedor.aspx.designer.cs">
+      <DependentUpon>nuevo_tbl_proveedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\importar_productos.aspx.cs">
+      <DependentUpon>importar_productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\importar_productos.aspx.designer.cs">
+      <DependentUpon>importar_productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\estadisticas_producto.aspx.cs">
+      <DependentUpon>estadisticas_producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\estadisticas_producto.aspx.designer.cs">
+      <DependentUpon>estadisticas_producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\listar_tbl_producto.aspx.cs">
+      <DependentUpon>listar_tbl_producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\listar_tbl_producto.aspx.designer.cs">
+      <DependentUpon>listar_tbl_producto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Mantenimiento\nuevo_tbl_producto.aspx.cs">
+      <DependentUpon>nuevo_tbl_producto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Mantenimiento\nuevo_tbl_producto.aspx.designer.cs">
+      <DependentUpon>nuevo_tbl_producto.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

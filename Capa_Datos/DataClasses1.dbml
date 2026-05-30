@@ -1,5 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Monolito4am" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NEO\CRISTOPHER;Initial Catalog=Monolito4am;Integrated Security=True;Encrypt=False" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="Monolito4amConnectionString" Provider="System.Data.SqlClient" />
+<?xml version="1.0" encoding="utf-8"?><Database Name="Monolito4am" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NEO\CRISTOPHER;Initial Catalog=Monolito4am;Integrated Security=True;Encrypt=False" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="Monolito4amConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tbl_proveedor" Member="tbl_proveedor">
+    <Type Name="tbl_proveedor">
+      <Column Name="prov_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prov_nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="prov_telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="prov_direccion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="prov_estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_proveedor_tbl_producto" Member="tbl_producto" ThisKey="prov_id" OtherKey="prov_id" Type="tbl_producto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_producto" Member="tbl_producto">
+    <Type Name="tbl_producto">
+      <Column Name="pro_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pro_nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="pro_cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pro_precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="prov_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pro_estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_proveedor_tbl_producto" Member="tbl_proveedor" ThisKey="prov_id" OtherKey="prov_id" Type="tbl_proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tbl_tipo_usuario" Member="tbl_tipo_usuario">
     <Type Name="tbl_tipo_usuario">
       <Column Name="tusu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
