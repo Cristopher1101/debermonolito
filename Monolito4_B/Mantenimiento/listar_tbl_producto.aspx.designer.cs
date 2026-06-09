@@ -7,6 +7,7 @@ namespace Monolito4_B.Mantenimiento {
         protected global::System.Web.UI.WebControls.TextBox txtBusqueda;
         protected global::System.Web.UI.WebControls.Button btnBuscar;
         protected global::System.Web.UI.WebControls.GridView gvProductos;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
         protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }

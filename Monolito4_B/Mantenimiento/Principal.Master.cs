@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Web.UI;
 using capa_negocio;
@@ -15,6 +15,11 @@ namespace Monolito4_B.Mantenimiento
         {
             Response.Charset = "utf-8";
             Response.ContentEncoding = Encoding.UTF8;
+
+            // Evitar que el navegador guarde la página en caché para evitar el uso del botón "Atrás" después de cerrar sesión
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
+            Response.Cache.SetNoStore();
 
             try
             {

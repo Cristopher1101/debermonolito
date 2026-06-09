@@ -56,7 +56,12 @@
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
                                     <a href='nuevo_tbl_proveedor.aspx?cod=<%# Eval("prov_id") %>' class="ua-link">Editar</a>
-                                    <asp:LinkButton ID="btnBorrar" runat="server" CommandArgument='<%# Eval("prov_id") %>' OnClick="btnBorrar_Click" CssClass="ua-link" ForeColor="#b71c1c" OnClientClick="return confirm('¿Seguro de borrar o inactivar este proveedor?');">Borrar</asp:LinkButton>
+                                    
+                                    <asp:LinkButton ID="btnLogico" runat="server" CommandArgument='<%# Eval("prov_id") %>' OnClick="btnLogico_Click" CssClass="ua-link" ForeColor="#e65100" OnClientClick="return confirm('¿Cambiar el estado de este proveedor?');">
+                                        <%# (Eval("prov_estado") != null && Eval("prov_estado").ToString() == "A") ? "Inactivar (Lógico)" : "Activar" %>
+                                    </asp:LinkButton>
+                                    
+                                    <asp:LinkButton ID="btnFisico" runat="server" CommandArgument='<%# Eval("prov_id") %>' OnClick="btnFisico_Click" CssClass="ua-link" ForeColor="#b71c1c" OnClientClick="return confirm('¡PELIGRO! ¿Seguro de ELIMINAR FÍSICAMENTE este proveedor? Esto no se puede deshacer.');">Borrar Físico</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

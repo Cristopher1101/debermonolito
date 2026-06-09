@@ -57,36 +57,84 @@
                 <asp:Label ID="lblMensaje" runat="server" CssClass="ua-msg" EnableViewState="false" Visible="false"></asp:Label>
                 
                 <div class="ua-toolbar">
-                    <asp:TextBox ID="txtBusqueda" runat="server" CssClass="search-box" AutoPostBack="true" OnTextChanged="txtBusqueda_TextChanged" placeholder="Buscar por nombre..."></asp:TextBox>
+                    <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="search-box" style="width: 220px;" AutoPostBack="true" OnSelectedIndexChanged="ddlProveedor_SelectedIndexChanged">
+                    </asp:DropDownList>
+                    <asp:TextBox ID="txtBusqueda" runat="server" CssClass="search-box" AutoPostBack="true" OnTextChanged="txtBusqueda_TextChanged" placeholder="Buscar por nombre..." onkeyup="realTimeSearch(this)"></asp:TextBox>
                     <asp:Button ID="btnBuscar" runat="server" Text="Buscar" CssClass="ua-btn ua-btn-primary" OnClick="btnBuscar_Click" />
                     <div style="flex-grow:1;"></div>
                     <a href="nuevo_tbl_producto.aspx" class="ua-btn ua-btn-primary">+ Nuevo Producto</a>
                     <a href="importar_productos.aspx" class="ua-btn ua-btn-ghost">Importar CSV</a>
                 </div>
+
+                <script>
+                    var searchTimeout;
+                    function realTimeSearch(sender) {
+                        clearTimeout(searchTimeout);
+                        searchTimeout = setTimeout(function () {
+                            __doPostBack(sender.name, '');
+                        }, 400); // Espera 400ms después de la última tecla
+                    }
+                    
+                    function iniciarCarruseles() {
+                        document.querySelectorAll('.my-carousel').forEach(function(c) {
+                            let imgs = c.querySelectorAll('img');
+                            if(imgs.length > 1) {
+                                let current = 0;
+                                setInterval(function() {
+                                    imgs[current].style.display = 'none';
+                                    current = (current + 1) % imgs.length;
+                                    imgs[current].style.display = 'block';
+                                }, 2500); // Cambia cada 2.5 segundos
+                            }
+                        });
+                    }
+                    
+                    // Ejecutar cuando se carga o cuando el UpdatePanel se actualiza
+                    Sys.WebForms.PageRequestManager.getInstance().add_pageLoaded(iniciarCarruseles);
+                </script>
                 
                 <div class="ua-card">
                     <h2>Listado</h2>
                     <asp:GridView ID="gvProductos" runat="server" CssClass="ua-gv" AutoGenerateColumns="False" 
                         AllowPaging="True" PageSize="5" OnPageIndexChanging="gvProductos_PageIndexChanging" 
-                        EmptyDataText="No se encontraron productos." GridLines="None">
+                        EmptyDataText="No se encontraron productos." GridLines="None" OnRowDataBound="gvProductos_RowDataBound">
                         
                         <Columns>
                             <asp:BoundField DataField="pro_id" HeaderText="ID" />
-                            <asp:TemplateField HeaderText="Imagen">
+                            <asp:TemplateField HeaderText="Imágenes" ItemStyle-Width="160px">
                                 <ItemTemplate>
-                                    <img src='<%# Eval("ImagenPrincipal") != null && Eval("ImagenPrincipal").ToString() != "" ? ResolveUrl(Eval("ImagenPrincipal").ToString()) : ResolveUrl("~/Images/no-image.png") %>' class="product-img" alt="Producto" onerror="this.src='https://via.placeholder.com/60';" />
+                                    <div class="my-carousel" style="width: 150px; height: 110px; position:relative; overflow:hidden; border-radius:8px; border:1px solid #ccc; margin:auto;">
+                                        <asp:Repeater ID="rptImagenes" runat="server">
+                                            <ItemTemplate>
+                                                <img src='<%# ResolveUrl(Eval("pimg_path").ToString()) %>' 
+                                                     style='<%# Container.ItemIndex == 0 ? "width:150px; height:110px; object-fit:cover; display:block;" : "width:150px; height:110px; object-fit:cover; display:none;" %>' />
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                        <asp:Label ID="lblNoImage" runat="server" Visible="false" Text="<img src='../Images/no-image.png' style='width:150px; height:110px; object-fit:cover;'/>"></asp:Label>
+                                    </div>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:BoundField DataField="pro_nombre" HeaderText="Producto" />
                             <asp:BoundField DataField="ProveedorNombre" HeaderText="Proveedor" NullDisplayText="N/A" />
                             <asp:BoundField DataField="pro_precio" HeaderText="Precio" DataFormatString="{0:C}" />
                             <asp:BoundField DataField="pro_cantidad" HeaderText="Stock" />
-                            
+                            <asp:TemplateField HeaderText="Estado">
+                                <ItemTemplate>
+                                    <span class='<%# (Eval("pro_estado") != null && Eval("pro_estado").ToString() == "A") ? "ua-badge ua-badge-a" : "ua-badge ua-badge-t" %>'>
+                                        <%# (Eval("pro_estado") != null && Eval("pro_estado").ToString() == "A") ? "Activo" : "Inactivo" %>
+                                    </span>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Acciones">
                                 <ItemTemplate>
                                     <a href='nuevo_tbl_producto.aspx?cod=<%# Eval("pro_id") %>' class="ua-link">Editar</a>
-                                    <a href='estadisticas_producto.aspx?cod=<%# Eval("pro_id") %>' class="ua-link" style="color: #059669;">Ver Detalle</a>
-                                    <asp:LinkButton ID="btnBorrar" runat="server" CommandArgument='<%# Eval("pro_id") %>' OnClick="btnBorrar_Click" CssClass="ua-link" ForeColor="#b71c1c" OnClientClick="return confirm('¿Seguro de borrar este producto?');">Borrar</asp:LinkButton>
+                                    <a href='estadisticas_producto.aspx?cod=<%# Eval("pro_id") %>' class="ua-link" style="color: #059669;">Detalle</a>
+                                    
+                                    <asp:LinkButton ID="btnLogico" runat="server" CommandArgument='<%# Eval("pro_id") %>' OnClick="btnLogico_Click" CssClass="ua-link" ForeColor="#e65100" OnClientClick="return confirm('¿Cambiar el estado lógico de este producto?');">
+                                        <%# (Eval("pro_estado") != null && Eval("pro_estado").ToString() == "A") ? "Inactivar" : "Activar" %>
+                                    </asp:LinkButton>
+                                    
+                                    <asp:LinkButton ID="btnFisico" runat="server" CommandArgument='<%# Eval("pro_id") %>' OnClick="btnFisico_Click" CssClass="ua-link" ForeColor="#b71c1c" OnClientClick="return confirm('¡PELIGRO! ¿Seguro de ELIMINAR FÍSICAMENTE este producto y sus imágenes?');">Borrar Físico</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

@@ -44,5 +44,16 @@ namespace Capa_Datos.Properties {
                 return ((string)(this["Monolito4amConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sql1003.site4now.net;Initial Catalog=db_aca0bc_monolito4am;User ID=db" +
+            "_aca0bc_monolito4am_admin;Password=2524543Cr.;Encrypt=False")]
+        public string db_aca0bc_monolito4amConnectionString {
+            get {
+                return ((string)(this["db_aca0bc_monolito4amConnectionString"]));
+            }
+        }
     }
 }

@@ -1,15 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><Database Name="Monolito4am" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NEO\CRISTOPHER;Initial Catalog=Monolito4am;Integrated Security=True;Encrypt=False" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="Monolito4amConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.tbl_proveedor" Member="tbl_proveedor">
-    <Type Name="tbl_proveedor">
-      <Column Name="prov_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="prov_nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="prov_telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="prov_direccion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="prov_estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Association Name="tbl_proveedor_tbl_producto" Member="tbl_producto" ThisKey="prov_id" OtherKey="prov_id" Type="tbl_producto" />
-    </Type>
-  </Table>
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="db_aca0bc_monolito4am" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=sql1003.site4now.net;Initial Catalog=db_aca0bc_monolito4am;User ID=db_aca0bc_monolito4am_admin;Encrypt=False" SettingsObjectName="Capa_Datos.Properties.Settings" SettingsPropertyName="db_aca0bc_monolito4amConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_producto" Member="tbl_producto">
     <Type Name="tbl_producto">
       <Column Name="pro_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -18,7 +8,27 @@
       <Column Name="pro_precio" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="prov_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="pro_estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_producto_tbl_producto_imagen" Member="tbl_producto_imagen" ThisKey="pro_id" OtherKey="pro_id" Type="tbl_producto_imagen" />
       <Association Name="tbl_proveedor_tbl_producto" Member="tbl_proveedor" ThisKey="prov_id" OtherKey="prov_id" Type="tbl_proveedor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_producto_imagen" Member="tbl_producto_imagen">
+    <Type Name="tbl_producto_imagen">
+      <Column Name="pimg_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pro_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pimg_path" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="pimg_es_principal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="tbl_producto_tbl_producto_imagen" Member="tbl_producto" ThisKey="pro_id" OtherKey="pro_id" Type="tbl_producto" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tbl_proveedor" Member="tbl_proveedor">
+    <Type Name="tbl_proveedor">
+      <Column Name="prov_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="prov_nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="prov_telefono" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="prov_direccion" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="prov_estado" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="tbl_proveedor_tbl_producto" Member="tbl_producto" ThisKey="prov_id" OtherKey="prov_id" Type="tbl_producto" />
     </Type>
   </Table>
   <Table Name="dbo.tbl_tipo_usuario" Member="tbl_tipo_usuario">
@@ -61,6 +71,9 @@
       <Association Name="tbl_usuario_tbl_usuario_foto" Member="tbl_usuario" ThisKey="usu_id" OtherKey="usu_id" Type="tbl_usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
+  <Function Name="dbo.sp_reiniciarIntentosDiarios" Method="sp_reiniciarIntentosDiarios">
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.desencriptacion" Method="desencriptacion" IsComposable="true">
     <Parameter Name="clave" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <Return Type="System.String" />
@@ -68,8 +81,5 @@
   <Function Name="dbo.encriptacion" Method="encriptacion" IsComposable="true">
     <Parameter Name="clave" Type="System.String" DbType="VarChar(50)" />
     <Return Type="System.Data.Linq.Binary" />
-  </Function>
-  <Function Name="dbo.sp_reiniciarIntentosDiarios" Method="sp_reiniciarIntentosDiarios">
-    <Return Type="System.Int32" />
   </Function>
 </Database>

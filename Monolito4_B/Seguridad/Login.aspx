@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Monolito4_B.Seguridad.Login" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Monolito4_B.Seguridad.Login" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -566,6 +566,12 @@
                 if (btnStop) btnStop.addEventListener("click", detenerCamaraQr);
             });
         })();
+
+        // Bloquear el botón de retroceso del navegador
+        window.history.pushState(null, "", window.location.href);
+        window.onpopstate = function () {
+            window.history.pushState(null, "", window.location.href);
+        };
 
     </script>
     <script src="<%= ResolveUrl("~/Scripts/disable-form-autofill.js") %>" defer></script>

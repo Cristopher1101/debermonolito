@@ -42,13 +42,32 @@
         <div class="ua-card">
             <h2>Gestión de Archivos (Excel)</h2>
             <div class="upload-container">
-                <p style="margin-bottom: 15px; color:#5c6bc0; font-size:0.9rem;">Para importar, selecciona un archivo Excel (.xlsx). Para exportar con el diseño completo de Excel, haz clic en "Exportar a Excel".</p>
-                <asp:FileUpload ID="fileUploadExcel" runat="server" />
+                <p style="margin-bottom: 15px; color:#5c6bc0; font-size:0.9rem;">Para importar, selecciona un archivo Excel (.xlsx). Para exportar con el diseño completo de Excel, haz clic en "Exportar a Excel". (Máx 5MB)</p>
+                <asp:FileUpload ID="fileUploadExcel" runat="server" accept=".xlsx,.xls" onchange="validarExcel(this);" />
                 <div class="ua-form-actions" style="justify-content:center;">
                     <asp:Button ID="btnPrevisualizar" runat="server" Text="Previsualizar Datos a Importar" CssClass="ua-btn ua-btn-primary" OnClick="btnPrevisualizar_Click" />
                     <asp:Button ID="btnExportar" runat="server" Text="Exportar a Excel" CssClass="ua-btn ua-btn-ghost" OnClick="btnExportar_Click" />
                 </div>
             </div>
+            
+            <script>
+                function validarExcel(input) {
+                    if (input.files && input.files.length > 0) {
+                        var file = input.files[0];
+                        if (file.size > 5 * 1024 * 1024) {
+                            alert("El archivo '" + file.name + "' pesa más de 5 MB. Por favor, sube un archivo más ligero.");
+                            input.value = ""; // Limpiar selección
+                            return;
+                        }
+                        var ext = file.name.split('.').pop().toLowerCase();
+                        if (ext !== "xlsx" && ext !== "xls") {
+                            alert("Solo se permiten archivos de Excel (.xlsx o .xls).");
+                            input.value = "";
+                            return;
+                        }
+                    }
+                }
+            </script>
         </div>
 
         <asp:Panel ID="pnlPreview" runat="server" Visible="false" CssClass="ua-card">

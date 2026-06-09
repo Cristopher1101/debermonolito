@@ -3,7 +3,7 @@
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\Users\isaac\Desktop\PUBLICAA\Deber 1 apli distri</_PublishTargetUrl>
-    <History>True|2026-05-15T06:11:42.2396756Z||;True|2026-05-15T00:50:05.6144916-05:00||;</History>
+    <History>True|2026-06-02T04:13:37.0715666Z||;True|2026-05-31T21:59:28.0892619-05:00||;True|2026-05-31T21:24:33.4188065-05:00||;True|2026-05-31T21:21:51.1757490-05:00||;True|2026-05-15T01:11:42.2396756-05:00||;True|2026-05-15T00:50:05.6144916-05:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -14,19 +14,22 @@
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/Capa_Datos.dll">
-      <publishTime>05/15/2026 00:50:03</publishTime>
+      <publishTime>05/31/2026 21:59:26</publishTime>
     </File>
     <File Include="bin/Capa_Datos.dll.config">
-      <publishTime>05/15/2026 00:32:31</publishTime>
+      <publishTime>05/31/2026 21:59:12</publishTime>
     </File>
     <File Include="bin/Capa_Datos.pdb">
-      <publishTime>05/15/2026 00:50:03</publishTime>
+      <publishTime>05/31/2026 21:59:26</publishTime>
     </File>
     <File Include="bin/capa_negocio.dll">
-      <publishTime>05/15/2026 00:50:03</publishTime>
+      <publishTime>06/01/2026 23:13:33</publishTime>
     </File>
     <File Include="bin/capa_negocio.pdb">
-      <publishTime>05/15/2026 00:50:03</publishTime>
+      <publishTime>06/01/2026 23:13:33</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>01/30/2020 02:13:00</publishTime>
     </File>
     <File Include="bin/es/Microsoft.AspNet.FriendlyUrls.resources.dll">
       <publishTime>07/30/2013 12:01:46</publishTime>
@@ -53,10 +56,10 @@
       <publishTime>04/11/2022 19:09:46</publishTime>
     </File>
     <File Include="bin/Monolito4_B.dll">
-      <publishTime>05/15/2026 01:11:41</publishTime>
+      <publishTime>06/01/2026 23:13:48</publishTime>
     </File>
     <File Include="bin/Monolito4_B.pdb">
-      <publishTime>05/15/2026 01:11:41</publishTime>
+      <publishTime>06/01/2026 23:13:48</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>03/08/2023 07:09:56</publishTime>
@@ -331,17 +334,35 @@
     <File Include="Mantenimiento/Desbloqueo.aspx">
       <publishTime>05/15/2026 00:21:46</publishTime>
     </File>
+    <File Include="Mantenimiento/estadisticas_producto.aspx">
+      <publishTime>05/29/2026 20:12:15</publishTime>
+    </File>
+    <File Include="Mantenimiento/importar_productos.aspx">
+      <publishTime>05/31/2026 14:08:35</publishTime>
+    </File>
     <File Include="Mantenimiento/Inicio.aspx">
-      <publishTime>05/15/2026 00:21:46</publishTime>
+      <publishTime>05/22/2026 09:00:38</publishTime>
     </File>
     <File Include="Mantenimiento/Juego.aspx">
       <publishTime>05/15/2026 00:21:46</publishTime>
     </File>
+    <File Include="Mantenimiento/listar_tbl_producto.aspx">
+      <publishTime>06/01/2026 22:42:31</publishTime>
+    </File>
+    <File Include="Mantenimiento/listar_tbl_proveedor.aspx">
+      <publishTime>06/01/2026 21:44:51</publishTime>
+    </File>
     <File Include="Mantenimiento/MiPerfil.aspx">
       <publishTime>05/15/2026 00:21:46</publishTime>
     </File>
+    <File Include="Mantenimiento/nuevo_tbl_producto.aspx">
+      <publishTime>05/31/2026 14:24:27</publishTime>
+    </File>
+    <File Include="Mantenimiento/nuevo_tbl_proveedor.aspx">
+      <publishTime>05/31/2026 14:07:35</publishTime>
+    </File>
     <File Include="Mantenimiento/Principal.master">
-      <publishTime>05/15/2026 00:28:51</publishTime>
+      <publishTime>05/31/2026 20:11:21</publishTime>
     </File>
     <File Include="Mantenimiento/UsuariosAdmin.aspx">
       <publishTime>05/15/2026 00:21:46</publishTime>
@@ -470,7 +491,7 @@
       <publishTime>04/27/2026 11:09:31</publishTime>
     </File>
     <File Include="Seguridad/Login.aspx">
-      <publishTime>05/15/2026 00:28:51</publishTime>
+      <publishTime>05/31/2026 20:05:04</publishTime>
     </File>
     <File Include="Seguridad/OtpQr.aspx">
       <publishTime>05/15/2026 00:28:51</publishTime>
@@ -488,7 +509,7 @@
       <publishTime>04/27/2026 11:09:32</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/15/2026 00:50:04</publishTime>
+      <publishTime>06/01/2026 23:13:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

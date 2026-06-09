@@ -32,9 +32,31 @@ namespace Monolito4_B.Mantenimiento
                         if (obj.prov_id != null)
                             ddlProveedor.SelectedValue = obj.prov_id.ToString();
                         ddlEstado.SelectedValue = obj.pro_estado.ToString();
+                        
+                        // Cargar imágenes existentes para previsualización sin JS usando un string de HTML
                     }
                 }
             }
+        }
+
+        public string ObtenerImagenesHtml()
+        {
+            string html = "";
+            if (Request["cod"] != null)
+            {
+                int cod = Convert.ToInt32(Request["cod"]);
+                var imagenes = db.ExecuteQuery<ImagenResult>("SELECT pimg_path FROM tbl_producto_imagen WHERE pro_id = {0}", cod).ToList();
+                foreach (var img in imagenes)
+                {
+                    html += $"<img src='{ResolveUrl(img.pimg_path)}' alt='Imagen Producto' />";
+                }
+            }
+            return html;
+        }
+
+        public class ImagenResult
+        {
+            public string pimg_path { get; set; }
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -67,12 +89,9 @@ namespace Monolito4_B.Mantenimiento
                 obj.pro_cantidad = string.IsNullOrEmpty(txtCantidad.Text) ? 0 : Convert.ToInt32(txtCantidad.Text);
                 obj.pro_precio = Convert.ToDecimal(txtPrecio.Text);
                 
-                // NOTA: Si aún no refrescas el DBML, prov_id es int en tu código. Si lo refrescas será int?.
-                // Como siempre forzamos seleccionar proveedor, esto funcionará en ambos.
+
                 int selectedProv = Convert.ToInt32(ddlProveedor.SelectedValue);
-                // Si ya refrescaste el DBML, esto fallará por el tipo si no hacemos cast adecuado.
-                // Como obj es dynamic o fuertemente tipado a int, asignamos el entero:
-                // Usamos reflection o asignacion directa. Es asumiendo que ya es nullable:
+
                 var propInfo = obj.GetType().GetProperty("prov_id");
                 if (propInfo.PropertyType == typeof(int?))
                     propInfo.SetValue(obj, (int?)selectedProv);
@@ -95,7 +114,7 @@ namespace Monolito4_B.Mantenimiento
                     foreach (var file in fileImagenes.PostedFiles)
                     {
                         string ext = System.IO.Path.GetExtension(file.FileName).ToLower();
-                        if (ext == ".jpg" || ext == ".png" || ext == ".jpeg")
+                        if ((ext == ".jpg" || ext == ".png" || ext == ".jpeg") && file.ContentLength <= 5 * 1024 * 1024)
                         {
                             string fileName = Guid.NewGuid().ToString() + ext;
                             string savePath = System.IO.Path.Combine(folderPath, fileName);

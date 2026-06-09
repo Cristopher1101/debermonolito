@@ -30,6 +30,9 @@
         .ua-btn-ghost:hover { background: #e8eaf6; }
         
         .ua-msg { padding: 14px 18px; border-radius: 14px; margin-bottom: 18px; font-size: .9rem; line-height: 1.45; display:block; }
+        
+        .ua-preview-grid { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .ua-preview-grid img { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; border: 1px solid #c5cae9; box-shadow: 0 4px 10px rgba(0,0,0,.05); }
     </style>
 </asp:Content>
 
@@ -55,7 +58,7 @@
                     <div class="ua-grid-form">
                         <div class="ua-field">
                             <label>Nombre:</label>
-                            <asp:TextBox ID="txtNombre" runat="server" MaxLength="150"></asp:TextBox>
+                            <asp:TextBox ID="txtNombre" runat="server" MaxLength="150" onkeypress="return /^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\.,\-]+$/.test(event.key);"></asp:TextBox>
                         </div>
                         <div class="ua-field">
                             <label>Proveedor:</label>
@@ -63,11 +66,11 @@
                         </div>
                         <div class="ua-field">
                             <label>Stock (Cantidad):</label>
-                            <asp:TextBox ID="txtCantidad" runat="server" TextMode="Number"></asp:TextBox>
+                            <asp:TextBox ID="txtCantidad" runat="server" TextMode="Number" onkeypress="return event.charCode >= 48 && event.charCode <= 57;"></asp:TextBox>
                         </div>
                         <div class="ua-field">
                             <label>Precio Unitario:</label>
-                            <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPrecio" runat="server" onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 46 || event.charCode === 44;"></asp:TextBox>
                             <span class="hint">Usa coma o punto para decimales según tu región.</span>
                         </div>
                         <div class="ua-field">
@@ -83,8 +86,11 @@
                         <p class="ua-subh">Galería de Imágenes</p>
                         <div class="ua-field ua-span2">
                             <label>Imágenes (Mínimo 3)</label>
-                            <asp:FileUpload ID="fileImagenes" runat="server" AllowMultiple="true" accept="image/jpeg,image/png,.jpg,.jpeg,.png" />
-                            <span class="hint">La primera imagen seleccionada será la principal. Recuerda elegir 3 o más.</span>
+                            <asp:FileUpload ID="fileImagenes" runat="server" AllowMultiple="true" accept="image/jpeg,image/png,.jpg,.jpeg,.png" onchange="validarArchivosImg(this);" />
+                            <span class="hint">La primera imagen seleccionada será la principal. Recuerda elegir 3 o más. (Máx 5MB por imagen)</span>
+                            <div class="ua-preview-grid">
+                                <%= ObtenerImagenesHtml() %>
+                            </div>
                         </div>
                     </div>
 
@@ -93,6 +99,21 @@
                         <asp:Button ID="btnRegresar" runat="server" CssClass="ua-btn ua-btn-ghost" Text="Volver al Listado" OnClick="btnRegresar_Click" CausesValidation="false" />
                     </div>
                 </div>
+
+                <script>
+                    function validarArchivosImg(input) {
+                        if (input.files) {
+                            for (var i = 0; i < input.files.length; i++) {
+                                var file = input.files[i];
+                                if (file.size > 5 * 1024 * 1024) {
+                                    alert("El archivo '" + file.name + "' pesa más de 5 MB. Por favor, sube imágenes más ligeras.");
+                                    input.value = ""; // Limpiar selección
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                </script>
 
             </ContentTemplate>
         </asp:UpdatePanel>

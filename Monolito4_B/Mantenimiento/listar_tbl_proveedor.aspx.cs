@@ -19,6 +19,7 @@ namespace Monolito4_B.Mantenimiento
         private void CargarProveedores()
         {
             var listaProveedores = from p in db.tbl_proveedor
+                                   orderby p.prov_estado ascending, p.prov_id ascending
                                    select new
                                    {
                                        p.prov_id,
@@ -32,7 +33,7 @@ namespace Monolito4_B.Mantenimiento
             gvProveedores.DataBind();
         }
 
-        protected void btnBorrar_Click(object sender, EventArgs e)
+        protected void btnLogico_Click(object sender, EventArgs e)
         {
             try
             {
@@ -40,15 +41,15 @@ namespace Monolito4_B.Mantenimiento
                 var obj = db.tbl_proveedor.FirstOrDefault(p => p.prov_id == cod);
                 if (obj != null)
                 {
-                    // En lugar de borrar de la base, marcamos como inactivo para no romper llaves foráneas.
-                    obj.prov_estado = 'I';
+                    // Alternar estado lógico
+                    obj.prov_estado = (obj.prov_estado == 'A') ? 'I' : 'A';
                     db.SubmitChanges();
                     
-                    // Mostrar Label (si la tenemos)
+                    // Mostrar Label
                     var lblMensaje = (System.Web.UI.WebControls.Label)UpdatePanel1.FindControl("lblMensaje");
                     if(lblMensaje != null) {
                         lblMensaje.Visible = true;
-                        lblMensaje.Text = "¡Proveedor inactivado correctamente!";
+                        lblMensaje.Text = "¡Estado lógico actualizado correctamente!";
                         lblMensaje.ForeColor = System.Drawing.Color.Green;
                     }
                     CargarProveedores();
@@ -59,7 +60,43 @@ namespace Monolito4_B.Mantenimiento
                  var lblMensaje = (System.Web.UI.WebControls.Label)UpdatePanel1.FindControl("lblMensaje");
                  if(lblMensaje != null) {
                       lblMensaje.Visible = true;
-                      lblMensaje.Text = "Error al inactivar: " + ex.Message;
+                      lblMensaje.Text = "Error al cambiar estado: " + ex.Message;
+                      lblMensaje.ForeColor = System.Drawing.Color.Red;
+                 }
+            }
+        }
+
+        protected void btnFisico_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int cod = Convert.ToInt32(((System.Web.UI.WebControls.LinkButton)sender).CommandArgument);
+                var obj = db.tbl_proveedor.FirstOrDefault(p => p.prov_id == cod);
+                if (obj != null)
+                {
+                    // Al eliminar físicamente un proveedor, seteamos en NULL el prov_id de sus productos
+                    db.ExecuteCommand("UPDATE tbl_producto SET prov_id = NULL WHERE prov_id = {0}", cod);
+                    
+                    // Borrado físico
+                    db.tbl_proveedor.DeleteOnSubmit(obj);
+                    db.SubmitChanges();
+                    
+                    // Mostrar Label
+                    var lblMensaje = (System.Web.UI.WebControls.Label)UpdatePanel1.FindControl("lblMensaje");
+                    if(lblMensaje != null) {
+                        lblMensaje.Visible = true;
+                        lblMensaje.Text = "¡Proveedor eliminado físicamente por completo!";
+                        lblMensaje.ForeColor = System.Drawing.Color.Green;
+                    }
+                    CargarProveedores();
+                }
+            }
+            catch (Exception ex)
+            {
+                 var lblMensaje = (System.Web.UI.WebControls.Label)UpdatePanel1.FindControl("lblMensaje");
+                 if(lblMensaje != null) {
+                      lblMensaje.Visible = true;
+                      lblMensaje.Text = "Error al eliminar físico: " + ex.Message;
                       lblMensaje.ForeColor = System.Drawing.Color.Red;
                  }
             }

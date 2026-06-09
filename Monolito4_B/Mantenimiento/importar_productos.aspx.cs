@@ -25,9 +25,15 @@ namespace Monolito4_B.Mantenimiento
                 try
                 {
                     string ext = Path.GetExtension(fileUploadExcel.FileName).ToLower();
-                    if (ext != ".xlsx")
+                    if (ext != ".xlsx" && ext != ".xls")
                     {
-                        lblMensaje.Text = "Por favor sube un archivo con extensión .xlsx (Excel).";
+                        lblMensaje.Text = "Por favor sube un archivo con extensión .xlsx o .xls (Excel).";
+                        lblMensaje.ForeColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                    if (fileUploadExcel.PostedFile.ContentLength > 5 * 1024 * 1024)
+                    {
+                        lblMensaje.Text = "El archivo Excel supera el límite de 5 MB.";
                         lblMensaje.ForeColor = System.Drawing.Color.Red;
                         return;
                     }
@@ -74,7 +80,8 @@ namespace Monolito4_B.Mantenimiento
                 try
                 {
                     int proId = 0;
-                    int.TryParse(row["ID"]?.ToString(), out proId);
+                    double tempId = 0;
+                    if (double.TryParse(row["ID"]?.ToString(), out tempId)) proId = (int)tempId;
                     
                     string nombre = row["Nombre"]?.ToString().Trim() ?? "";
                     if (string.IsNullOrWhiteSpace(nombre)) continue; // Nombre es obligatorio
@@ -87,17 +94,19 @@ namespace Monolito4_B.Mantenimiento
                     int.TryParse(row["Prov_ID"]?.ToString(), out provId);
                     string urlImg = row["Imagenes_URLs"]?.ToString();
 
-                    // Buscar por ID si viene en el Excel. Si no tiene ID (0) o no se encuentra, buscar por nombre o asumir nuevo.
+                    // Buscar por ID primero
                     tbl_producto prod = null;
                     if (proId > 0)
                     {
                         prod = db.tbl_producto.FirstOrDefault(p => p.pro_id == proId);
                     }
                     
-                    if (prod == null && proId == 0)
+                    // Si no se encontró por ID (o no tiene ID), buscar por nombre de forma súper robusta
+                    if (prod == null)
                     {
-                        // Fallback opcional: buscar por nombre si no tiene ID
-                        prod = db.tbl_producto.FirstOrDefault(p => p.pro_nombre.ToLower() == nombre.ToLower());
+                        string nombreLower = nombre.ToLower();
+                        // Hacemos ToList() para asegurar que la comparación ignore espacios en blanco de forma segura en memoria
+                        prod = db.tbl_producto.ToList().FirstOrDefault(p => p.pro_nombre != null && p.pro_nombre.Trim().ToLower() == nombreLower);
                     }
 
                     int productoId = 0;
