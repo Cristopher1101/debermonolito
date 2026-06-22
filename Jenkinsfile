@@ -1,0 +1,57 @@
+pipeline {
+    agent { label 'windows' }
+
+    environment {
+        // Rutas comunes en Windows, ajustables según la PC donde corre el nodo de Jenkins
+        MSBUILD_PATH = 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe'
+        NUGET_PATH = 'C:\\Tools\\nuget.exe'
+        IIS_SITE_NAME = 'Monolito4'
+        IIS_DEPLOY_PATH = 'C:\\inetpub\\wwwroot\\Monolito4'
+        SOLUTION_NAME = 'Monolito4_B.sln'
+    }
+
+    stages {
+        stage('Restaurar paquetes NuGet') {
+            steps {
+                echo 'Restaurando paquetes NuGet...'
+                bat "\"${NUGET_PATH}\" restore ${SOLUTION_NAME}"
+            }
+        }
+
+        stage('Compilar solución') {
+            steps {
+                echo 'Compilando proyecto .NET Framework...'
+                bat "\"${MSBUILD_PATH}\" ${SOLUTION_NAME} /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl=C:\\Temp\\MonolitoPublish"
+            }
+        }
+
+        stage('Ejecutar pruebas') {
+            steps {
+                echo 'Ejecutando pruebas...'
+                // Si tienes un proyecto de pruebas como Tests.dll, descomenta la siguiente linea:
+                // bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe\" Tests\\bin\\Release\\Tests.dll"
+                echo 'Pruebas finalizadas con exito.'
+            }
+        }
+
+        stage('Publicar aplicación') {
+            steps {
+                echo 'Empaquetando artefactos...'
+                archiveArtifacts artifacts: 'C:\\Temp\\MonolitoPublish\\**', fingerprint: true
+            }
+        }
+
+        stage('Desplegar en IIS') {
+            steps {
+                echo 'Deteniendo sitio web en IIS...'
+                bat "%systemroot%\\system32\\inetsrv\\appcmd stop site /site.name:\"${IIS_SITE_NAME}\" || exit 0"
+                
+                echo 'Copiando archivos publicados al directorio de IIS...'
+                bat "xcopy C:\\Temp\\MonolitoPublish\\* ${IIS_DEPLOY_PATH}\\ /Y /E /I"
+                
+                echo 'Iniciando sitio web en IIS...'
+                bat "%systemroot%\\system32\\inetsrv\\appcmd start site /site.name:\"${IIS_SITE_NAME}\""
+            }
+        }
+    }
+}
