@@ -21,7 +21,7 @@ pipeline {
         stage('Compilar solución') {
             steps {
                 echo 'Compilando proyecto .NET Framework...'
-                bat "\"${MSBUILD_PATH}\" ${SOLUTION_NAME} /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl=C:\\Temp\\MonolitoPublish"
+                bat "\"${MSBUILD_PATH}\" ${SOLUTION_NAME} /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl=\"%WORKSPACE%\\PublishOutput\""
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
         stage('Publicar aplicación') {
             steps {
                 echo 'Empaquetando artefactos...'
-                archiveArtifacts artifacts: 'C:\\Temp\\MonolitoPublish\\**', fingerprint: true
+                archiveArtifacts artifacts: 'PublishOutput\\**', fingerprint: true
             }
         }
 
@@ -47,7 +47,7 @@ pipeline {
                 bat "%systemroot%\\system32\\inetsrv\\appcmd stop site /site.name:\"${IIS_SITE_NAME}\" || exit 0"
                 
                 echo 'Copiando archivos publicados al directorio de IIS...'
-                bat "xcopy C:\\Temp\\MonolitoPublish\\* ${IIS_DEPLOY_PATH}\\ /Y /E /I"
+                bat "xcopy \"%WORKSPACE%\\PublishOutput\\*\" \"${IIS_DEPLOY_PATH}\\\" /Y /E /I"
                 
                 echo 'Iniciando sitio web en IIS...'
                 bat "%systemroot%\\system32\\inetsrv\\appcmd start site /site.name:\"${IIS_SITE_NAME}\""
