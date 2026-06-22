@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Rutas comunes en Windows, ajustables según la PC donde corre el nodo de Jenkins
-        MSBUILD_PATH = 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe'
+        MSBUILD_PATH = 'C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe'
         NUGET_PATH = 'C:\\Tools\\nuget.exe'
         IIS_SITE_NAME = 'Monolito4'
         IIS_DEPLOY_PATH = 'C:\\inetpub\\wwwroot\\Monolito4'
