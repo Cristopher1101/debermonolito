@@ -50,7 +50,7 @@ pipeline {
                 bat "xcopy \"%WORKSPACE%\\Monolito4_B\\obj\\Release\\Package\\PackageTmp\\*\" \"${IIS_DEPLOY_PATH}\\\" /Y /E /I"
                 
                 echo 'Iniciando sitio web en IIS...'
-                bat "%systemroot%\\system32\\inetsrv\\appcmd start site /site.name:\"${IIS_SITE_NAME}\""
+                bat "%systemroot%\\system32\\inetsrv\\appcmd start site /site.name:\"${IIS_SITE_NAME}\" || exit 0"
             }
         }
     }
