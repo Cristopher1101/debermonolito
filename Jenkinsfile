@@ -7,7 +7,7 @@ pipeline {
         NUGET_PATH = 'C:\\Tools\\nuget.exe'
         IIS_SITE_NAME = 'Monolito4'
         IIS_DEPLOY_PATH = 'C:\\inetpub\\wwwroot\\Monolito4'
-        SOLUTION_NAME = 'Monolito4_B.sln'
+        SOLUTION_NAME = 'Monolito4_B.slnx'
     }
 
     stages {
