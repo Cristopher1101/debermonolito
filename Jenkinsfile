@@ -28,8 +28,7 @@ pipeline {
         stage('Ejecutar pruebas') {
             steps {
                 echo 'Ejecutando pruebas...'
-                // Si tienes un proyecto de pruebas como Tests.dll, descomenta la siguiente linea:
-                // bat "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe\" Tests\\bin\\Release\\Tests.dll"
+                
                 echo 'Pruebas finalizadas con exito.'
             }
         }
