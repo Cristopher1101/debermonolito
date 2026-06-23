@@ -28,8 +28,15 @@ pipeline {
         stage('Ejecutar pruebas') {
             steps {
                 echo 'Ejecutando pruebas...'
-                
+                bat "\"C:\\Program Files\\Microsoft Visual Studio\\18\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TestWindow\\vstest.console.exe\" \"Pruebas_Monolito\\bin\\Release\\net481\\Pruebas_Monolito.dll\" /logger:trx"
                 echo 'Pruebas finalizadas con exito.'
+            }
+            post {
+                always {
+                    xunit(
+                        tools: [MSTest(pattern: '**/*.trx', deleteOutputFiles: true, failIfNotNew: false, skipNoTestFiles: false, stopProcessingIfError: true)]
+                    )
+                }
             }
         }
 
