@@ -308,7 +308,7 @@
 
                 <asp:Panel ID="pnlLogin" runat="server">
                     <div class="login-header">
-                        <h2>Monolito 4B</h2>
+                        <h2>Monolito 4B JEJEE PRUEBA QUE FUNCIONE xdd</h2>
                         <p>Ingrese su <strong>cédula</strong> y <strong>contraseña</strong>. Recibirá el mismo <strong>código OTP de 6 dígitos por correo y por WhatsApp</strong> a la vez.</p>
                     </div>
 
