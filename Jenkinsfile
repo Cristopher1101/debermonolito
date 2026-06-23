@@ -33,7 +33,7 @@ pipeline {
             }
             post {
                 always {
-                    step([$class: 'XUnitPublisher', tools: [[$class: 'MSTestJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: false, pattern: '**/*.trx', skipNoTestFiles: false, stopProcessingIfError: true]]])
+                    mstest testResultsFile: '**/*.trx', keepLongStdio: true
                 }
             }
         }
