@@ -33,7 +33,7 @@ pipeline {
             }
             post {
                 always {
-                    mstest testResultsFile: '**/*.trx', keepLongStdio: true
+                    archiveArtifacts artifacts: '**/*.trx', allowEmptyArchive: true
                 }
             }
         }
