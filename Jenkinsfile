@@ -33,9 +33,7 @@ pipeline {
             }
             post {
                 always {
-                    xunit(
-                        tools: [MSTest(pattern: '**/*.trx', deleteOutputFiles: true, failIfNotNew: false, skipNoTestFiles: false, stopProcessingIfError: true)]
-                    )
+                    step([$class: 'XUnitPublisher', tools: [[$class: 'MSTestJunitHudsonTestType', deleteOutputFiles: true, failIfNotNew: false, pattern: '**/*.trx', skipNoTestFiles: false, stopProcessingIfError: true]]])
                 }
             }
         }
